@@ -42,6 +42,7 @@ CDirectSoundStream_SetMaxDistance                    = 0x3AABFE
 CDirectSoundStream_SetMinDistance                    = 0x3AAC1A
 CDirectSoundStream_SetMixBins                        = 0x3AB75C
 CDirectSoundStream_SetMixBinVolumes                  = 0
+CDirectSoundStream_SetMixBinVolumesMask              = 0x3AAB85  # 3911: (this, bin mask, LONG volumes[])
 CDirectSoundStream_SetPosition                       = 0x3AAC36
 CDirectSoundStream_SetVelocity                       = 0
 CDirectSoundStream_SetVolume                         = 0x3AB041

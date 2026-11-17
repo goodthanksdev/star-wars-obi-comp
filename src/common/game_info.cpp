@@ -25,6 +25,31 @@ const app::GameInfo app::kGame = {
     .ui = nullptr,                        // ImGui drawing each frame
     .pad = obi::DevPad,                   // changes a polled pad (local test input)
     .rumble = nullptr,                    // changes a rumble before it is set
-    .version = "0.1.0",                   // the options menu header
+    // mouse and keyboard, rebound in the settings menu: the saber on the mouse buttons and wheel; the controller
+    // layout is the game's configuration 1
+    .keys = {{"up", "Move forward", "W"},
+             {"down", "Move back", "S"},
+             {"left", "Move left", "A"},
+             {"right", "Move right", "D"},
+             {"a", "Jump / Force jump", "Space, Enter"},
+             {"b", "Use / Force push", "Q, Backspace"},
+             {"x", "Crouch / Force pull", "C, Left Ctrl"},
+             {"y", "Acrobatics / Force throw", "E"},
+             {"lt", "Force (hold)", "Left Shift"},
+             {"rt", "Lock-on", "Tab"},
+             {"rs", "Lightsaber throw", "Middle Mouse"},
+             {"rs_up", "Saber swipe up", "Scroll Up, I"},
+             {"rs_down", "Saber block (swipe down)", "Scroll Down, K"},
+             {"rs_left", "Saber swipe left", "Left Mouse, J"},
+             {"rs_right", "Saber swipe right", "Right Mouse, L"},
+             {"white", "Free look / Force view", "F"},
+             {"black", "180 quick-turn", "R"},
+             {"dpad_up", "Inventory up", "Up"},
+             {"dpad_down", "Inventory down", "Down"},
+             {"dpad_left", "Inventory left", "Left"},
+             {"dpad_right", "Inventory right", "Right"},
+             {"start", "Pause", "Esc"}},
+    .version = "0.1.1",                   // the options menu header
     .tier = "alpha",                      // alpha, beta or complete
+    .widescreen = false,                  // made for 4:3: widescreen through the toolkit's hack
 };

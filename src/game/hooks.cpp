@@ -25,13 +25,15 @@ X86_FUNC(sub_0036AFA0) {
 OBI_STUB(003AAE4E, 0xC)   // IDirectSoundBuffer_* (this, value, apply) via 0x3AA? -0x1C thunk
 OBI_STUB(003AAE6E, 0x10)  // IDirectSoundBuffer_SetConeAngles
 OBI_STUB(003AAE92, 0x14)  // IDirectSoundBuffer_SetConeOrientation
-OBI_STUB(003AAB85, 0xC)   // CDirectSoundStream (this, value, apply), reached from IDirectSoundStream 0x3AB069
 OBI_STUB(003AAB9D, 0x10)  // CDirectSoundStream_SetConeAngles
 OBI_STUB(003AABE6, 0xC)   // CDirectSoundStream_SetConeOutsideVolume or SetMode: stores a value at the voice's +0x4C
 OBI_STUB(003AB073, 0x14)  // IDirectSoundStream_SetConeOrientation
+// IDirectSoundStream_SetMixBinVolumes jumps into CDirectSoundStream's (0x3AAB85, named in the config), and the jump
+// skips its override: the entry goes to the runtime's too, the same arguments.
+X86_EXTERN_FUNC(GUEST(CDirectSoundStream_SetMixBinVolumesMask));
+X86_FUNC(sub_003AB069) { GUEST(CDirectSoundStream_SetMixBinVolumesMask)(ctx, base); }
 // The IDirectSoundStream entries the game calls jump into the CDirectSoundStream ones above; the jump skips their
 // overrides, so the entries are stubbed too.
-OBI_STUB(003AB069, 0xC)   // IDirectSoundStream_SetMixBinVolumes (3911: this, bin mask, LONG volumes[]) -> 0x3AAB85; TODO volumes
 OBI_STUB(003AB06E, 0x10)  // IDirectSoundStream_SetConeAngles -> 0x3AAB9D
 OBI_STUB(003AB09C, 0xC)   // -> 0x3AABE6
 
