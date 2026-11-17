@@ -1,0 +1,11 @@
+{
+  "name": "Star Wars: Obi-Wan",
+  "project": "Star Wars: Obi Comp",
+  "console": "xbox",
+  "consoleName": "Xbox",
+  "tier": "alpha",
+  "needs": "Star Wars: Obi-Wan (Xbox) disc image",
+  "year": 2001,
+  "romDir": "assets",
+  "exe": "ObiWan.exe"
+}
